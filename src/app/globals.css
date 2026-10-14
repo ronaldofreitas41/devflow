@@ -1,0 +1,142 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+ * DevFlow — tema grafite.
+ * Uma superfície-base quente-neutra, duas camadas de elevação e um único acento violeta.
+ * O azul aparece só como segunda série nos gráficos (horas de foco).
+ */
+:root {
+  color-scheme: dark;
+
+  --background: #131418;
+  --foreground: #ececf1;
+
+  --surface: #18191e;
+  --surface-raised: #1e1f25;
+  --surface-hover: #24252c;
+
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: #1c1d23;
+  --popover-foreground: var(--foreground);
+
+  --primary: #8b7cf6;
+  --primary-foreground: #0f0d1c;
+  --primary-soft: rgb(139 124 246 / 0.14);
+
+  --secondary: #24252c;
+  --secondary-foreground: #ececf1;
+
+  --muted: #1e1f25;
+  --muted-foreground: #8d8f9b;
+  --subtle-foreground: #636572;
+
+  --accent: #24252c;
+  --accent-foreground: #ececf1;
+
+  --destructive: #f0616d;
+  --success: #3ecf8e;
+  --warning: #f5a524;
+  --info: #60a5fa;
+
+  --border: #2a2b33;
+  --border-strong: #363741;
+  --input: #2f3039;
+  --ring: #8b7cf6;
+
+  --chart-1: #8b7cf6;
+  --chart-2: #60a5fa;
+  --chart-3: #3ecf8e;
+  --chart-4: #f5a524;
+  --chart-5: #f0616d;
+
+  --radius: 10px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-hover: var(--surface-hover);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-subtle-foreground: var(--subtle-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: rgb(139 124 246 / 0.35);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.7);
+    cursor: pointer;
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
